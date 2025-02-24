@@ -3,8 +3,6 @@ from pdf2image import convert_from_path
 import os
 
 # Specify Poppler path
-poppler_path = r"C:\poppler-24.08.0\Library\bin"
-
 def pdf_to_png(pdf_path, output_dir):
     # Create a subdirectory for this PDF
     base_name = os.path.splitext(os.path.basename(pdf_path))[0]
@@ -12,7 +10,7 @@ def pdf_to_png(pdf_path, output_dir):
     os.makedirs(pdf_output_dir, exist_ok=True)
     
     # Convert PDF to images
-    images = convert_from_path(pdf_path, poppler_path=poppler_path)
+    images = convert_from_path(pdf_path)
     
     # Save each page as a PNG file
     for i, image in enumerate(images):
